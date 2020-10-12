@@ -1,0 +1,59 @@
+body
+{
+    margin: 0;
+}
+
+#layout
+{
+    height: 100vh;
+    max-width: 70rem;
+    margin: auto;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    background-color: rgb(228, 228, 228);
+}
+
+#filler
+{
+    flex-grow: 1;
+}
+
+#message-wrapper
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.message
+{
+    height: 3rem;
+    margin-top: 3rem;
+    width: 10rem;
+    background-color: pink;
+}
+
+.message_sent
+{
+    align-self: flex-end;
+}
+
+.message_received
+{
+    
+}
+
+#input-box
+{
+    padding: 3rem 0;
+    display: flex;
+}
+
+#message-input
+{
+    width: 100%;
+    margin-right: 1rem;
+}
