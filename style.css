@@ -8,12 +8,13 @@ body
     height: 100vh;
     max-width: 50rem;
     margin: auto;
-    padding: 0 3rem;
+    padding: 0 1.5rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 
+    font-family: helvetica;
     background-color: rgb(228, 228, 228);
 }
 
@@ -33,9 +34,9 @@ body
     margin-top: 1rem;
     max-width: 70%;
     background-color: pink;
-    display: flex;
     position: relative;
     border-radius: 0.5rem;
+    padding: 0.5rem;
 }
 
 .message_sent
@@ -64,16 +65,17 @@ body
 
 .message-text
 {
-    margin: 0.5rem;
     font-size: 1rem;
 }
 
 .message-timestamp
 {
-    font-size: 0.8rem;
-    color: rgb(59, 59, 59);
-    align-self: flex-end;
-    margin: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    color: #808080;
+    display: inline-block;
+    margin-left: 0.8rem;
+    margin-top: 0.3rem;
+    float: right;
 }
 
 .arrow
@@ -81,6 +83,7 @@ body
     position: absolute;
     width: 0;
     height: 0;
+    top: 0;
     border-top: 1rem solid #ffc0cb;
 }
 

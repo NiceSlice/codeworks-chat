@@ -1,13 +1,9 @@
-let n = 0;
-
-
 function post(text, sent=true)
 {
     let d = new Date();
-    let timestamp = d.getHours() + ":" + d.getMinutes();
+    let timestamp = ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
 
-    $('#messages-wrapper').append( $('<div id="message-' + n.toString() + 
-                                    '" class="message message_' + (sent ? 'sent' : 'received') + 
+    $('#messages-wrapper').append( $('<div class="message message_' + (sent ? 'sent' : 'received') + 
                                     '"> <span class="message-text">' + 
                                     text + 
                                     '</span><span class="message-timestamp">' + 
@@ -15,7 +11,6 @@ function post(text, sent=true)
                                     '</span><div class="arrow arrow_' + 
                                     (sent ? 'sent' : 'received') + 
                                     '"></div></div>') );
-    n++;
 
     $('#layout').scrollTop($('#layout')[0].scrollHeight);
 }
