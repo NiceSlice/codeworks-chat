@@ -6,7 +6,7 @@ body
 #layout
 {
     height: 100vh;
-    max-width: 70rem;
+    max-width: 50rem;
     margin: auto;
     padding: 0 3rem;
     box-sizing: border-box;
@@ -22,7 +22,7 @@ body
     flex-grow: 1;
 }
 
-#message-wrapper
+#messages-wrapper
 {
     display: flex;
     flex-direction: column;
@@ -30,20 +30,24 @@ body
 
 .message
 {
-    height: 3rem;
-    margin-top: 3rem;
-    width: 10rem;
+    margin-top: 1rem;
+    max-width: 70%;
     background-color: pink;
+    display: flex;
+    position: relative;
+    border-radius: 0.5rem;
 }
 
 .message_sent
 {
     align-self: flex-end;
+    border-top-right-radius: 0rem;
 }
 
 .message_received
 {
-    
+    width: max-content;
+    border-top-left-radius: 0rem;
 }
 
 #input-box
@@ -56,4 +60,38 @@ body
 {
     width: 100%;
     margin-right: 1rem;
+}
+
+.message-text
+{
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.message-timestamp
+{
+    font-size: 0.8rem;
+    color: rgb(59, 59, 59);
+    align-self: flex-end;
+    margin: 0.2rem 0.4rem;
+}
+
+.arrow
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid #ffc0cb;
+}
+
+.arrow_sent
+{
+    border-right: 0.8rem solid transparent;
+    right: -0.5rem;
+}
+
+.arrow_received
+{
+    border-left: 0.8rem solid transparent;
+    left: -0.5rem;
 }
