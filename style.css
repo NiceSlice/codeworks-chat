@@ -6,6 +6,8 @@ body
 #layout
 {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
     max-width: 50rem;
     margin: auto;
     padding: 0 1.5rem;

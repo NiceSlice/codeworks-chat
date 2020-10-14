@@ -88,12 +88,23 @@ function onsend()
     typing(text);
 }
 
+
+
 $(document).on('keydown', function(e)
 {
     if (e.which == '13' && e.shiftKey === false) { onsend(); }
 })
 
+$(window).on('resize', function()
+{
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
+
 $(document).ready(function()
 {
-
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
