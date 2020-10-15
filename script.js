@@ -1,3 +1,94 @@
+let gres = [
+    'Hi!',
+    'Well, hello! At last!',
+    'Hello, I\'ve been waiting to hear from you!',
+    'Hi! How have you been lately?',
+]
+
+let qres = [
+    'Well, it depends',
+    'What do you think?',
+    'Why don\'t you tell me?',
+    'I wouldn\'t know',
+    'I can\'t say for sure',
+    'Well, it\'s hard to tell',
+    'I\'m not sure',
+    'I\'ll think about it... ',
+    'Why do you ask?',
+];
+
+let cres = [
+    'Ah yes, sure',
+    'Of course',
+    'I understand',
+    'Yes, yes',
+    'Makes sense',
+    'I\'m confused',
+    'Okay',
+];
+
+let bres = [
+    'Sorry I have to go, hope we can talk again later',
+    'It was great talking to you but I\'m really busy now',
+    'Thanks for checking in but I have to go now',
+    'I have to go now, hope you have a great day!',
+];
+
+let dres = [
+    'Okay bye',
+    'Bye now',
+    'Talk to you later',
+    'I\'m busy :/',
+    'Can\'t talk right now...',
+    'Ok',
+];
+
+
+let n = 0;
+let done = false;
+
+function respond(text)
+{
+    let res = [];
+
+    if(done)
+    {
+        res.push(dres[Math.floor(Math.random() * dres.length)]);
+        n++;
+        return res;
+    }
+
+    if(n === 0)
+    {
+        res.push(gres[Math.floor(Math.random() * gres.length)]);
+    }
+
+    if(text.includes('?'))
+    {
+        res.push(qres[Math.floor(Math.random() * qres.length)]);
+    }
+
+    else if(text.length <= 4 && n !== 0)
+    {
+        res.push(text);
+    }
+
+    else if (n !== 0)
+    {
+        res.push(cres[Math.floor(Math.random() * cres.length)]);
+    }
+
+    if (n >= 10)
+    {
+        res.push(bres[Math.floor(Math.random() * bres.length)]);
+        done = true;
+    }
+
+    n += res.length;
+
+    return res;
+}
+
 function animation(pace, size1, size2)
 {
     setTimeout(
@@ -85,7 +176,14 @@ function onsend()
     $('#message-input')[0].value = '';
     
     post(text);
-    typing(text);
+
+    let res = respond(text);
+
+    for (let i in res)
+    {
+        typing(res[i]);
+    }
+
 }
 
 
