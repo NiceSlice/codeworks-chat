@@ -1,11 +1,11 @@
-let gres = [
+let resA = [
     'Hi!',
-    'Well, hello! At last!',
+    'Hello!',
     'Hello, I\'ve been waiting to hear from you!',
     'Hi! How have you been lately?',
-]
+];
 
-let qres = [
+let resB = [
     'Well, it depends',
     'What do you think?',
     'Why don\'t you tell me?',
@@ -17,7 +17,7 @@ let qres = [
     'Why do you ask?',
 ];
 
-let cres = [
+let resC = [
     'Ah yes, sure',
     'Of course',
     'I understand',
@@ -27,14 +27,14 @@ let cres = [
     'Okay',
 ];
 
-let bres = [
+let resD = [
     'Sorry I have to go, hope we can talk again later',
     'It was great talking to you but I\'m really busy now',
     'Thanks for checking in but I have to go now',
     'I have to go now, hope you have a great day!',
 ];
 
-let dres = [
+let resE = [
     'Okay bye',
     'Bye now',
     'Talk to you later',
@@ -42,7 +42,6 @@ let dres = [
     'Can\'t talk right now...',
     'Ok',
 ];
-
 
 let n = 0;
 let done = false;
@@ -53,19 +52,19 @@ function respond(text)
 
     if(done)
     {
-        res.push(dres[Math.floor(Math.random() * dres.length)]);
+        res.push(resE[Math.floor(Math.random() * resE.length)]);
         n++;
         return res;
     }
 
     if(n === 0)
     {
-        res.push(gres[Math.floor(Math.random() * gres.length)]);
+        res.push(resA[Math.floor(Math.random() * resA.length)]);
     }
 
     if(text.includes('?'))
     {
-        res.push(qres[Math.floor(Math.random() * qres.length)]);
+        res.push(resB[Math.floor(Math.random() * resB.length)]);
     }
 
     else if(text.length <= 4 && n !== 0)
@@ -75,19 +74,19 @@ function respond(text)
 
     else if (n !== 0)
     {
-        res.push(cres[Math.floor(Math.random() * cres.length)]);
+        res.push(resC[Math.floor(Math.random() * resC.length)]);
     }
 
-    if (n >= 10)
+    if (n >= 8)
     {
-        res.push(bres[Math.floor(Math.random() * bres.length)]);
+        res.push(resD[Math.floor(Math.random() * resD.length)]);
         done = true;
     }
 
     n += res.length;
-
     return res;
 }
+
 
 function animation(pace, size1, size2)
 {
@@ -144,7 +143,6 @@ function typing(text)
 }
 
 
-
 function post(text, sent=true)
 {
     let d = new Date();
@@ -162,7 +160,6 @@ function post(text, sent=true)
     $('#layout').scrollTop($('#layout')[0].scrollHeight);
 }
 
-let promise;
 
 function onsend()
 {
@@ -187,19 +184,17 @@ function onsend()
 }
 
 
-
 $(document).on('keydown', function(e)
 {
     if (e.which == '13' && e.shiftKey === false) { onsend(); }
 })
+
 
 $(window).on('resize', function()
 {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
-
-
 
 $(document).ready(function()
 {
